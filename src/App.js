@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+import React , { useState }from 'react';
 import './App.css';
+import mainContext from './Context';
+import Question1 from './Questions/Question1';
+import Question2 from './Questions/Question2';
+import { answerObject } from './mainObject';
+import Question3 from './Questions/Question3';
+import Question4 from './Questions/Question4';
+import Question5 from './Questions/Question5';
+import Question6 from './Questions/Question6';
+
+
 
 function App() {
+
+  const[val, setVal] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div>
+            <h1 className='header'>React Interview Questions</h1>
+
+             <mainContext.Provider value={{answerObject, val, setVal}}>
+               <Question1 />
+               <Question2 />
+               <Question3 />
+               <Question4 />
+               <Question5 />
+               <Question6 />
+              </mainContext.Provider>
+              
+        </div>
     </div>
   );
 }
